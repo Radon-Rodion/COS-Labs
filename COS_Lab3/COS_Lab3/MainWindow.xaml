@@ -1,0 +1,95 @@
+﻿<Window x:Class="COS_Lab3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:COS_Lab3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <oxy:Plot Title="Lab 3 Task 2">
+                    <oxy:Plot.Series>
+                        <oxy:LineSeries ItemsSource="{Binding Orig2}" Color="#00f"/>
+                        <oxy:LineSeries ItemsSource="{Binding Res2}" Color="#f00"/>
+                    </oxy:Plot.Series>
+                </oxy:Plot>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox x:Name="task2Spectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <oxy:Plot Title="Lab 3 Task 3">
+                    <oxy:Plot.Series>
+                        <oxy:LineSeries ItemsSource="{Binding Orig3}" Color="#00f"/>
+                        <oxy:LineSeries ItemsSource="{Binding Res3}" Color="#f00"/>
+                        <oxy:LineSeries ItemsSource="{Binding Res3WithoutPhases}" Color="#700"/>
+                    </oxy:Plot.Series>
+                </oxy:Plot>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox x:Name="task3Spectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <oxy:Plot Title="Lab 3 Task 4-5">
+                    <oxy:Plot.Series>
+                        <oxy:LineSeries ItemsSource="{Binding Orig45}" Color="#00f"/>
+                        <oxy:LineSeries ItemsSource="{Binding Res45}" Color="#f00"/>
+                    </oxy:Plot.Series>
+                </oxy:Plot>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox x:Name="task45Spectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <RadioButton Grid.Row="0" GroupName="sinals" Content="Model signal (from lab4)" IsChecked="True" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Row="1" GroupName="sinals" Content="Real signal (lightning)" Checked="RadioButton_Checked_1"/>
+            </Grid>
+            <Button Grid.Column="1" Content="Запустить ЛР 3" Click="Button_Click" FontSize="36"/>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="freqFrom" Grid.Column="0" FontSize="36px" Text="0"/>
+                <TextBox x:Name="freqTo" Grid.Column="1" FontSize="36px" Text="0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
