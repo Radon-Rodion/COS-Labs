@@ -28,9 +28,9 @@ namespace COS3.Algorythms
             for(int i=0; i<_N; i++)
             {
                 double sum = 0d;
-                for (int j = 0; j < a.Length; j++)
+                for (int j = 0; j < _N/2; j++)
                 {
-                    sum += a[j] * Math.Cos( (2 * Math.PI * i * j / _N) - fi[j]);
+                    sum += a[j]*2 * Math.Cos( (2 * Math.PI * i * j / _N) - fi[j]);
                 }
                 res[i] = sum;
             }

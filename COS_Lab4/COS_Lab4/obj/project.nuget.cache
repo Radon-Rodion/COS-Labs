@@ -1,15 +1,38 @@
 {
   "version": 2,
-  "dgSpecHash": "qnG8Slt3VPnLiyAtpuZZvq0OfPoq1aKIjZqxMkAZf1rCn8Y8/jbPimZ1c4y7WZ9jD5MJCwwM5gcKlr/osCIM4g==",
+  "dgSpecHash": "qS2XSAh8gEt+z4Xjj4c/TBrDeuVwBatvm4B2NrCIKXqVKSdmjE4P4iQF9oyBF24yShlZ0q3vZmXqcehPXni1PQ==",
   "success": true,
   "projectFilePath": "D:\\COS\\COS_Lab4\\COS_Lab4\\COS_Lab4.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Pavel.Rafeev\\.nuget\\packages\\oxyplot.core\\1.0.0\\oxyplot.core.1.0.0.nupkg.sha512",
+    "C:\\Users\\Pavel.Rafeev\\.nuget\\packages\\oxyplot.wpf\\1.0.0\\oxyplot.wpf.1.0.0.nupkg.sha512"
+  ],
   "logs": [
     {
       "code": "NU1803",
       "level": "Warning",
       "warningLevel": 1,
       "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://10.72.193.76:3000/api/packages/B1-Digital/nuget/index.json'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'OxyPlot.Core 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "OxyPlot.Core",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'OxyPlot.Wpf 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "OxyPlot.Wpf",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
     }
   ]
 }

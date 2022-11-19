@@ -21,7 +21,7 @@ namespace COS_Lab3
             OrigSignalPoints = signalGenerator.GenerateSignalPoints(GlobalConfigs.Configs.N);
             var xK = FurjeTransformer.Straight(OrigSignalPoints);
             var aK = xK.Select(x => Math.Sqrt(x.im * x.im + x.re * x.re)).ToArray();
-            var fiK = xK.Select(x => Math.Atan(x.re / x.im) - Math.PI).ToArray();
+            var fiK = xK.Select(x => Math.Atan(x.im / x.re)).ToArray();
 
             if(removeHarmonicsFrom != -1 && removeHarmonicsTo != -1)
             {
@@ -34,15 +34,15 @@ namespace COS_Lab3
 
             var SignalSpectrSB = new StringBuilder();
             SignalSpectrSB.Append("R = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", Enumerable.Range(0, GlobalConfigs.Configs.N - 1).Select(i => i.ToString("D2")).Take(25)));
+            SignalSpectrSB.AppendLine(String.Join("; ", Enumerable.Range(0, GlobalConfigs.Configs.N - 1).Select(i => i.ToString("D2")).Skip(1).Take(25)));
             SignalSpectrSB.Append("Are = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.re.ToString("0.##")).Take(30)));
+            SignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.re.ToString("0.##")).Skip(1).Take(30)));
             SignalSpectrSB.Append("Aim = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.im.ToString("0.##")).Take(30)));
+            SignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.im.ToString("0.##")).Skip(1).Take(30)));
             SignalSpectrSB.Append("A = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", aK.Select(a => a.ToString("0.##")).Take(30)));
+            SignalSpectrSB.AppendLine(String.Join("; ", aK.Select(a => (a*2).ToString("0.##")).Skip(1).Take(30)));
             SignalSpectrSB.Append("fi = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", fiK.Select(fi => fi.ToString("0.##")).Take(30)));
+            SignalSpectrSB.AppendLine(String.Join("; ", fiK.Select(fi => fi.ToString("0.##")).Skip(1).Take(30)));
             SignalSpectr = SignalSpectrSB.ToString();
 
             ResultSignalPoints = FurjeTransformer.Inversed(aK, fiK);

@@ -31,11 +31,11 @@ namespace COS_Lab3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var task2 = new TaskViewModel(new HarmonicSignalGenerator(30, 1, -Math.PI*3/4));
+            var task2 = new TaskViewModel(new HarmonicSignalGenerator(20, 10, 0));
             task2Spectr.Text = task2.SignalSpectr;
 
             var phases = new double[] { Math.PI / 6, Math.PI / 4, Math.PI / 3, Math.PI / 2, Math.PI * 3 / 4, Math.PI };
-            var amplitudes = new double[] { 3, 5, 6, 8, 10, 13, 16 };
+            var amplitudes = new double[] { 1, 3, 4, 10, 11, 14, 17 };
             var task3 = new TaskViewModel(new PolyharmonicRandomSignalGenerator(phases, amplitudes));
             task3Spectr.Text = task3.SignalSpectr;
 

@@ -13,8 +13,8 @@ namespace COS_Lab3
         {
             Orig2 = getListWithDataPoints(task2.OrigSignalPoints);
             Res2 = getListWithDataPoints(task2.ResultSignalPoints);
-            Orig3 = getListWithDataPoints(task3.ResultSignalPoints);
-            Res3 = getListWithDataPoints(task3.ResultSignalPoints);
+            Orig3 = getListWithDataPoints(task3.OrigSignalPoints);
+            Res3 = getListWithDataPoints(task3.OrigSignalPoints);
             Res3WithoutPhases = getListWithDataPoints(task3.ResultSignaPointsWithoutPhase);
             Orig45 = getListWithDataPoints(task45.OrigSignalPoints);
             Res45 = getListWithDataPoints(task45.ResultSignalPoints);
