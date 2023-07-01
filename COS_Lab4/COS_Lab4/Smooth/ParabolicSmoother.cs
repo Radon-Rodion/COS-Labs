@@ -18,7 +18,7 @@ namespace COS_Lab4.Smooth
                 double val = 0;
                 for (int j = 0; j < 7; j++)
                 {
-                    val += _koeffs[j] * signal[(i + j - 3) % signal.Length];
+                    val += _koeffs[j] * signal[(i + j - 3 + signal.Length) % signal.Length];
                 }
                 result[i] = val * multiplyer;
             }

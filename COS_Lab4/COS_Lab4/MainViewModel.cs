@@ -11,10 +11,10 @@ namespace COS_Lab4
     {
         public MainViewModel(double[] OrigSignalPoints, TaskViewModel taskMiddle, TaskViewModel taskParabola, TaskViewModel taskMedian)
         {
-            Orig = getListWithDataPoints(OrigSignalPoints);
-            Middle = getListWithDataPoints(taskMiddle.SmoothedSignalPoints);
-            Parabola = getListWithDataPoints(taskParabola.SmoothedSignalPoints);
-            Median = getListWithDataPoints(taskMedian.SmoothedSignalPoints);
+            _origBackup = getListWithDataPoints(OrigSignalPoints);
+            _middleBackup = getListWithDataPoints(taskMiddle.SmoothedSignalPoints);
+            _parabolaBackup = getListWithDataPoints(taskParabola.SmoothedSignalPoints);
+            _medianBackup = getListWithDataPoints(taskMedian.SmoothedSignalPoints);
             
         }
 
@@ -27,6 +27,20 @@ namespace COS_Lab4
             }
             return listWithDataPoints;
         }
+
+        public void DrawGraphics(bool showOriginal, bool showMiddle, bool showParabola, bool showMedian)
+        {
+            Orig = showOriginal ? _origBackup : new List<DataPoint>();
+            Middle = showMiddle ? _middleBackup : new List<DataPoint>();
+            Parabola = showParabola ? _parabolaBackup : new List<DataPoint>();
+            Median = showMedian ? _medianBackup : new List<DataPoint>();
+
+        }
+
+        private IList<DataPoint> _origBackup;
+        private IList<DataPoint> _middleBackup;
+        private IList<DataPoint> _parabolaBackup;
+        private IList<DataPoint> _medianBackup;
 
         public IList<DataPoint> Orig { get; private set; }
         public IList<DataPoint> Middle { get; private set; }

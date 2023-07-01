@@ -24,6 +24,7 @@ namespace COS_Lab4
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainViewModel? _model = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -39,11 +40,7 @@ namespace COS_Lab4
 
             var SignalSpectrSB = new StringBuilder();
             SignalSpectrSB.Append("R = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", Enumerable.Range(0, GlobalConfigs.Configs.N - 1).Select(i => i.ToString("D2")).Take(25)));
-            SignalSpectrSB.Append("Are = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.re.ToString("0.##")).Take(30)));
-            SignalSpectrSB.Append("Aim = ");
-            SignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.im.ToString("0.##")).Take(30)));
+            SignalSpectrSB.AppendLine(String.Join("; ", Enumerable.Range(0, GlobalConfigs.Configs.N - 1).Select(i => i.ToString("D2")).Take(30)));
             SignalSpectrSB.Append("A = ");
             SignalSpectrSB.AppendLine(String.Join("; ", aK.Select(a => (a * 2).ToString("0.##")).Take(30)));
             SignalSpectrSB.Append("fi = ");
@@ -51,13 +48,34 @@ namespace COS_Lab4
             origSpectr.Text = SignalSpectrSB.ToString();
 
             var taskMedium = new TaskViewModel(OrigSignalPoints, new AverageSmoother(7));
-            middleSpectr.Text = taskMedium.ToString();
+            middleSpectr.Text = taskMedium.SmoothedSignalSpectr.ToString();
             var taskParabola = new TaskViewModel(OrigSignalPoints, new ParabolicSmoother());
-            parabolaSpectr.Text = taskParabola.ToString();
+            parabolaSpectr.Text = taskParabola.SmoothedSignalSpectr.ToString();
             var taskMedian = new TaskViewModel(OrigSignalPoints, new MedianFilterSmoother(9));
-            medianSpectr.Text = taskMedian.ToString();
+            medianSpectr.Text = taskMedian.SmoothedSignalSpectr.ToString();
 
-            this.DataContext = new MainViewModel(OrigSignalPoints, taskMedium, taskParabola, taskMedian);
+            _model = new MainViewModel(OrigSignalPoints, taskMedium, taskParabola, taskMedian);
+            
+            Draw();
+            this.DataContext = _model;
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Draw();
+        }
+
+        private void Draw()
+        {
+            if (_model is null)
+            {
+                return;
+            }
+            _model.DrawGraphics(
+                OriginalCheckBox.IsChecked ?? false,
+                AverageCheckBox.IsChecked ?? false,
+                ParabolicCheckBox.IsChecked ?? false,
+                MedianCheckBox.IsChecked ?? false);
         }
     }
 }

@@ -17,7 +17,6 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <oxy:Plot Title="Lab 4">
@@ -29,9 +28,7 @@
                     </oxy:Plot.Series>
                 </oxy:Plot>
             </Grid>
-            <Grid Grid.Column="1">
-                <TextBox x:Name="middleSpectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
-            </Grid>
+
         </Grid>
 
         <Grid Grid.Row="1">
@@ -43,7 +40,7 @@
                 <TextBox x:Name="origSpectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox x:Name="parabolaSpectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
+                <TextBox x:Name="middleSpectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">
@@ -51,6 +48,9 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBox x:Name="parabolaSpectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
+            </Grid>
             <Grid Grid.Column="1">
                 <TextBox x:Name="medianSpectr"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible"/>
             </Grid>
@@ -66,14 +66,17 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                
+                <CheckBox x:Name="OriginalCheckBox" Grid.Row="0" Content="Оригинальный" IsChecked="True" Checked="CheckBox_Checked"/>
+                <CheckBox x:Name="AverageCheckBox" Grid.Row="1" Content="Усреднение" IsChecked="True"/>
             </Grid>
-            <Button Grid.Column="1" Content="Запустить ЛР 4"  FontSize="36" Click="Button_Click"/>
+            <Button Grid.Column="1" Content="Запустить ЛР 4"  FontSize="36" Click="Button_Click" />
             <Grid Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="ParabolicCheckBox" Grid.Row="0" Content="Параболический" IsChecked="True"/>
+                <CheckBox x:Name="MedianCheckBox" Grid.Row="1" Content="Медианный" IsChecked="True"/>
             </Grid>
         </Grid>
     </Grid>

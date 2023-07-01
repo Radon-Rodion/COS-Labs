@@ -28,11 +28,7 @@ namespace COS_Lab4
 
             var SmoothedSignalSpectrSB = new StringBuilder();
             SmoothedSignalSpectrSB.Append("R = ");
-            SmoothedSignalSpectrSB.AppendLine(String.Join("; ", Enumerable.Range(0, GlobalConfigs.Configs.N - 1).Select(i => i.ToString("D2")).Take(25)));
-            SmoothedSignalSpectrSB.Append("Are = ");
-            SmoothedSignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.re.ToString("0.##")).Take(30)));
-            SmoothedSignalSpectrSB.Append("Aim = ");
-            SmoothedSignalSpectrSB.AppendLine(String.Join("; ", xK.Select(x => x.im.ToString("0.##")).Take(30)));
+            SmoothedSignalSpectrSB.AppendLine(String.Join("; ", Enumerable.Range(0, GlobalConfigs.Configs.N - 1).Select(i => i.ToString("D2")).Take(30)));
             SmoothedSignalSpectrSB.Append("A = ");
             SmoothedSignalSpectrSB.AppendLine(String.Join("; ", aK.Select(a => (a * 2).ToString("0.##")).Take(30)));
             SmoothedSignalSpectrSB.Append("fi = ");

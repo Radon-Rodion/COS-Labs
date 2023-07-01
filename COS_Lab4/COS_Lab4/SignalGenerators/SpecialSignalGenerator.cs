@@ -24,8 +24,8 @@ namespace СhanceApproach
         public double[] GenerateSignalPoints(int NPoints)
         {
             double[] res = new double[NPoints];
-            double b1 = _random.NextDouble();
-            double b2 = 103.714d * b1;
+            double b2 = _random.NextDouble();
+            double b1 = 33.71d * b2;
 
             for(int i = 0; i<_N; i++)
             {

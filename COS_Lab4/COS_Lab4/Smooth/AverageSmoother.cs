@@ -24,7 +24,7 @@ namespace COS_Lab4.Smooth
                 double val = 0;
                 for(int j = -_m; j <= _m; j++)
                 {
-                    val += signal[(i+j)%(signal.Length-1)];
+                    val += signal[(i+j+signal.Length)%(signal.Length)];
                 }
                 result[i] = val / _K;
             }

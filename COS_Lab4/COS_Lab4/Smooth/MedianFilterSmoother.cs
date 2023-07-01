@@ -22,7 +22,7 @@ namespace COS_Lab4.Smooth
                 double[] subArr = new double[_window];
                 for(int j = 0; j < _window; j++)
                 {
-                    subArr[j] = signal[(i+j-_window/2)%signal.Length];
+                    subArr[j] = signal[(i+j-_window/2 + signal.Length)%signal.Length];
                 }
                 subArr = subArr.OrderBy(x => x).ToArray();
                 result[i] = subArr[_window / 2];
